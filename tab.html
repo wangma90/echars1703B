@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+        }
+        .tab{
+            width: 300px;
+        }
+        #tabTitle{
+            width: 300px;
+        }
+        #tabTitle li{
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            list-style: none;
+            float: left;
+            background: deepskyblue;
+        }
+        #tabTitle li.selected{
+            color: white;
+            background: red;
+         }
+        #tabContent{
+            width: 300px;
+            float: left;
+            clear: left;
+        }
+        #tabContent span{
+            width: 300px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            /*display: inline-block;*/
+            display: none;
+            background: yellow;
+        }
+        #tabContent span.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <ul id="tabTitle">
+        <li class="selected">标题1</li>
+        <li>标题2</li>
+        <li>标题3</li>
+    </ul>
+    <div id="tabContent">
+        <span class="show">内容1</span>
+        <span>内容2</span>
+        <span>内容3</span>
+    </div>
+</div>
+<script>
+    var tabT = document.getElementById("tabTitle");
+    var lis = tabT.getElementsByTagName("li");
+    var tabC = document.getElementById("tabContent");
+    var spans = tabC.getElementsByTagName("span");
+//    lis[0].onclick = function(){
+//        lis[0].className = "selected";
+//        lis[1].className = "";
+//        lis[2].className = "";
+//        spans[0].className = "show";
+//        spans[1].className = "";
+//        spans[2].className = "";
+//    };
+//    lis[1].onclick = function(){
+//        lis[0].className = "";
+//        lis[1].className = "selected";
+//        lis[2].className = "";
+//        spans[0].className = "";
+//        spans[1].className = "show";
+//        spans[2].className = "";
+//    };
+//    lis[2].onclick = function(){
+//        lis[0].className = "";
+//        lis[1].className = "";
+//        lis[2].className = "selected";
+//        spans[0].className = "";
+//        spans[1].className = "";
+//        spans[2].className = "show";
+//    };
+    for(var i=0;i<lis.length;i++){
+        lis[i].onclick = function (){
+            for(var j=0;j<lis.length;j++){
+                if(this==lis[j]){
+                    lis[j].className = "selected";
+                    spans[j].className = "show";
+                }else{
+                    lis[j].className = "";
+                    spans[j].className = "";
+                }
+            }
+        };
+    }
+//    for(var i=0;i<lis.length;i++){
+//        lis[i].onclick = function(){
+//            for(var j=0;j<lis.length;j++){
+//                if(this==lis[j]){
+//                    lis[j].className = "selected";
+//                    spans[j].className = "show";
+//                }else{
+//                    lis[j].className = "";
+//                    spans[j].className = "";
+//                }
+//            }
+//        };
+//    }
+</script>
+</body>
+</html>
